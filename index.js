@@ -8,7 +8,7 @@ var extractions = []
 
 function isValidScript (node) {
 	return node.type === 'Tag' && node.name === 'script'
-		&& node.attrs.filter(function (attr) { return attr.val.replace(/['"]/g, '') !== 'text/javascript' }).length <= 0
+		&& node.attrs.filter(function (attr) { return attr.val.replace(/['"]/g, '') !== 'text/es6' }).length <= 0
 }
 
 var pugProcessor = {
@@ -32,7 +32,6 @@ var pugProcessor = {
 
 module.exports = {
 	processors: {
-		'.jade': pugProcessor,
-		'.pug': pugProcessor
+		'.tag': pugProcessor
 	}
 }
